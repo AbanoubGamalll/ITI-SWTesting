@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Review</title>
+  <link rel="stylesheet" href="../css/review.css" />
+  <link rel="stylesheet" href="../css/global.css" />
+</head>
+
+<body>
+  <iframe class="headerStyle" src="./header.html"></iframe>
+
+  <div>
+    <div class="page-header">
+      <h2>Our Clients Review</h2>
+      <div>
+        <img src="../img/minilogo.png" alt="logo" />
+      </div>
+    </div>
+
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide">
+          <div class="profile-card">
+            <div class="profile-image">
+              <img src="../img/blog-img3.jpg" alt="Nora Smith" />
+            </div>
+            <div class="profile-content">
+              <h2>Nora Smith</h2>
+              <p class="title">CTO</p>
+              <p>
+                Nora Smith leads our technology vision as CTO, driving innovation with over 15 years of experience in
+                software development and IT strategy.
+                Her expertise has transformed our digital infrastructure, ensuring cutting-edge solutions for our team
+                and clients..
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="profile-card">
+            <div class="profile-image">
+              <img src="../img/blog-img2.jpg" alt="Nora Smith" />
+            </div>
+            <div class="profile-content">
+              <h2>Khaled Ali</h2>
+              <p class="title">CMO</p>
+              <p>
+                Khaled Ali, our CMO, brings a dynamic approach to marketing with a decade of experience in brand
+                strategy and digital campaigns.
+                He’s passionate about connecting with our audience and boosting our market presence through creative
+                initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="slide">
+          <div class="profile-card">
+            <div class="profile-image">
+              <img src="../img/blog-img1.jpg" alt="Nora Smith" />
+            </div>
+            <div class="profile-content">
+              <h2>Abanoub Gamal</h2>
+              <p class="title">CEO</p>
+              <p>
+                Abanoub Gamal, our CEO, steers the company with a clear vision and 20 years of leadership experience.
+                His strategic decisions have propelled our growth, fostering a culture of innovation and excellence
+                across all operations.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider-dots">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+  </div>
+
+  <iframe class="footerStyle" src="./footer.html"></iframe>
+
+  <script>
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function currentSlide(n) {
+      showSlides((slideIndex = n));
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("slide");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) {
+        slideIndex = 1;
+      }
+      if (n < 1) {
+        slideIndex = slides.length;
+      }
+
+      // Move the slider
+      let slider = document.querySelector(".slider");
+      slider.style.transform = `translateX(-${(slideIndex - 1) * 100}%)`;
+
+      // Update active dot
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      dots[slideIndex - 1].className += " active";
+    }
+  </script>
+</body>
+
+</html>
